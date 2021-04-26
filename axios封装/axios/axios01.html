@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+    <button id="btn1click">get</button>
+    <button id="btn2click">post</button>
+    <button id="btn3click">put</button>
+    <button id="btn4click">delete</button>
+<script>
+const btn1=document.getElementById("btn1click");
+const btn3=document.getElementById("btn3click");
+const btn4=document.getElementById("btn4click");
+axios.defaults.baseURL = 'https://api.uomg.com/api/';
+/*btn1.onclick=function(){
+    axios({
+    //url:"https://api.uomg.com/api/rand.music",
+    methods:"get",
+    params:{
+        sort:"热歌榜",
+        format:"json"
+    }
+}).then(
+    success=>{
+        console.log(success),
+        console.log(success.data.data.name),
+        console.log(success.data.data.artistsname)
+        console.log(success.data.data.picurl)
+        console.log(success.data.data.url)
+    }
+)
+};*/
+
+
+//简写
+btn1.onclick=function(){
+    axios.get("/rand.music",{
+        params:{
+        sort:"热歌榜",
+        format:"json"
+        }
+    }).then(
+        success=>{
+        console.log(success),
+        console.log(success.data.data.name),
+        console.log(success.data.data.artistsname)
+        console.log(success.data.data.picurl)
+        console.log(success.data.data.url)
+    }
+    ).catch(
+        err=>{
+            console.log(err)
+        }
+    )
+}
+
+
+/*axios_post*/
+const btn2=document.getElementById("btn2click");
+btn2.onclick=function(){
+  axios({
+url:"https://api.uomg.com/api/rand.music",
+methods:"post",
+data:{},
+  }).then(
+      success=>{
+        console.log(success),
+        console.log(success.data.data.name),
+        console.log(success.data.data.artistsname)
+        console.log(success.data.data.picurl)
+        console.log(success.data.data.url)
+      }
+  )
+}
+</script>
+</body>
+</html>
+

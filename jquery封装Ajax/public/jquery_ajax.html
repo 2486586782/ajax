@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_ajax</title>
+    <script src="./jquery-3.4.1/jquery-3.4.1.js"></script>
+</head>
+<body>  
+    <button id="btn1">点击首页jQuery发送get请求</button>
+    <button id="btn2">点击首页jQuery发送post请求</button>
+    <script>
+    let btn1=document.getElementById("btn1")
+    let btn2=document.getElementById("btn2")
+   //完整版
+  /* btn1.onclick=function(){
+
+
+        $.ajax({
+         url:'http://localhost:8080/ajax_get',
+         method:'get',
+         data:{name:"起灵",age:23},
+
+         success:function(result){
+             console.log(result)},
+
+         error:function(err){
+             console.log(err)},
+            })  
+
+            
+   }*/
+  //简写
+   btn1.onclick=function(){
+    $.get('http://localhost:8080/ajax_get',{name:"起灵",age:23},(data)=>{
+    console.log(data)
+    })
+    }
+
+
+
+//post完整写法
+    /* btn2.onclick=function(){
+        $.ajax({
+         url:'http://localhost:8080/ajax_post',
+         method:'post',
+         data:{name:"起灵",age:23},
+
+         success:function(result){
+             console.log(result)},
+
+         error:function(err){
+             console.log(err)},
+            })  
+     }*/
+
+//简写post请求
+  /*btn2.onclick=function(){
+    $.post('http://localhost:8080/ajax_post',{name:"起灵",age:23},(data)=>{
+    console.log(data)
+    })
+    }*/
+</script>
+</body>
+</html>

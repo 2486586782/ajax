@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生Ajax发送get</title>
+</head>
+<body>  
+    <button id="btn">原生Ajax</button>
+    <span id="demo"></span> 
+    <script>
+let btn =document.getElementById("btn");
+let demo=document.getElementById("demo")
+
+btn.onclick=function(){
+const xhr= new XMLHttpRequest();
+
+xhr.onreadystatechange=function(){
+if(xhr.readyState===4){
+if(xhr.status>=200 && xhr.status<300){
+
+demo.innerHTML=xhr.response
+
+}}}
+xhr.open('get',"http://localhost:8000/ajaxget?name=起灵&age=23")
+xhr.send()
+
+}
+</script>
+</body>
+</html>

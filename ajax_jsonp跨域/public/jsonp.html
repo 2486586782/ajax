@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <script>
+let btn=document.getElementById("btn");
+
+btn.onclick=function(){
+window.qil=function(result){
+console.log(result)
+}
+//创建一个节点
+const scriptnode=document.createElement('script')
+//为节点增加指定的src地址
+scriptnode.src="http://localhost:8080/test?callback=qil"
+//将节点插入页面
+document.body.appendChild(scriptnode)
+}
+    </script>
+</body>
+</html>
